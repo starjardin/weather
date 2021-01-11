@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const LocationContainerStyles = styled.div`
-  max-width : 25%;
+  // max-width : 25%;
 `
 
 const LocationsStyles = styled.p`
@@ -19,11 +19,15 @@ export default function Locations({
         ? weatherLocationObj.map((location, index) => 
           <LocationsStyles 
             key={index}
-            onClick={() => handleClick(location.title)}
+            data-value={location.title}
+            onClick={handleClick}
           >
             {location.title}
           </LocationsStyles>)
-        : "can not find your location please search"
+        : <div >
+          <p>Loading...</p>
+          <p>Can't find location, Please search</p>
+        </div>
       }
     </LocationContainerStyles>
   )
