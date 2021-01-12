@@ -1,26 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
+import MainStyles from './MainStyles'
 
 import Locations from './locations'
 import Weather from './Weather'
-
-const MainStyles = styled.div`
-  gap : 0rem;
-  .search-feild {
-    background-color : #1E213A;
-    flex-basis : 35%;
-    label {
-      display : block;
-    }
-  }
-  .weather {
-    flex-basis : 65%;
-    background-color : #100E1D;
-  }
-  @media screen and (min-width : 720px) {
-    display : flex;
-  }
-`
 
 export default function Main(
   {
@@ -39,11 +21,14 @@ export default function Main(
           <input 
             name="search"
             id="search-input"
+            autoComplete="off"
+            placeholder = "london"
           />
-          <button type="submit" >search</button>
+          <button type="submit" className="search">search</button>
           <Locations
             weatherLocationObj={weatherLocationObj}
             handleClick={handleClick}
+            weatherInFiveDays={weatherInFiveDays}
           />
         </form>
       </div>
