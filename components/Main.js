@@ -5,18 +5,20 @@ import Locations from './locations'
 import Weather from './Weather'
 
 const MainStyles = styled.div`
-  display : flex;
   gap : 0rem;
-  div:nth-of-type(1) {
+  .search-feild {
     background-color : #1E213A;
     flex-basis : 35%;
     label {
       display : block;
     }
   }
-  div:nth-of-type(2) {
+  .weather {
     flex-basis : 65%;
     background-color : #100E1D;
+  }
+  @media screen and (min-width : 720px) {
+    display : flex;
   }
 `
 
@@ -30,7 +32,7 @@ export default function Main(
 ) {
   return (
     <MainStyles>
-      <div>
+      <div className="search-feild">
         <h1>Hello world</h1>
         <form action="#" className="form-search" onSubmit={handleSearch}>
           <label htmlFor="search-input">Search Location</label>
@@ -45,7 +47,7 @@ export default function Main(
           />
         </form>
       </div>
-      <div>
+      <div className="weather">
         <Weather
           weatherInFiveDays={weatherInFiveDays}
         />

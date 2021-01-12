@@ -50,7 +50,6 @@ export default function App () {
     const selectedLocation = weatherLocationObj.filter(location => location.title === locationValue)
     setWoeid(selectedLocation[0].woeid);
   }
-  console.log(woeid)
 
   return (
     <>
