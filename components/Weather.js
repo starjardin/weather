@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { GlobalContext } from '../useReducer'
 
 const WeatherInFiveDaysStyles = styled.div`
   display : flex;
@@ -23,10 +24,12 @@ const HilightsStyles = styled.div`
   }
 `
 
-export default function Weather({weatherInFiveDays}) {
+export default function Weather() {
+
+  const { state, dispatch } = useContext(GlobalContext)
   
-  const futureWeather = weatherInFiveDays.consolidated_weather
-  console.log(futureWeather);
+  const futureWeather = state.weatherInFiveDays.consolidated_weather
+  console.log(state);
   const futureWeatherElem = (futureWeather) => {
     return futureWeather
       ? <WeatherInFiveDaysStyles> {futureWeather.map((weather, index) =>
@@ -45,7 +48,6 @@ export default function Weather({weatherInFiveDays}) {
       : <div>Loading...</div>
     }
 
-  console.log(futureWeather);
   return (
     <div>
       <h2>Hello world</h2>
