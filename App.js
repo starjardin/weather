@@ -5,8 +5,7 @@ import { GlobalContext } from './useReducer'
 import { ACTIONS } from './useReducer'
 
 export default function App () {
-  const { state, dispatch } = useContext(GlobalContext)
-  const [loadingLoaction, setLoadingLocation] = useState(true);
+  const { dispatch } = useContext(GlobalContext)
   
   const handleSearch = (e) => {
     e.preventDefault()
@@ -21,7 +20,6 @@ export default function App () {
     <>
       <Main
         handleSearch={handleSearch}
-        loadingLoaction={loadingLoaction}
       />
     </>
   )
