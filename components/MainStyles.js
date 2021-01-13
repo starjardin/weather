@@ -5,6 +5,7 @@ const MainStyles = styled.div`
   .search-feild {
     background-color : #1E213A;
     flex-basis : 35%;
+    min-height : 100vh;
     label {
       display : block;
     }
