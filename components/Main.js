@@ -1,18 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import MainStyles from './MainStyles'
 
 import Locations from './locations'
 import Weather from './Weather'
-import { GlobalContext } from '../useReducer'
 
-export default function Main(
-  {
-    handleSearch,
-    handleClick,
-    loadingLoaction
-  }
-) {
-  const { state, dispatch } = useContext(GlobalContext)
+export default function Main({ handleSearch }) {
   return (
     <MainStyles>
       <div className="search-feild">
@@ -26,10 +18,7 @@ export default function Main(
             placeholder = "london"
           />
           <button type="submit" className="search">search</button>
-          <Locations
-            handleClick={handleClick}
-            loadingLoaction={loadingLoaction}
-          />
+          <Locations />
         </form>
       </div>
       <div className="weather">
