@@ -29,10 +29,10 @@ export default function Weather() {
   const { state, dispatch } = useContext(GlobalContext)
   
   const futureWeather = state.weatherInFiveDays.consolidated_weather
-  console.log(state);
-  const futureWeatherElem = (futureWeather) => {
-    return futureWeather
-      ? <WeatherInFiveDaysStyles> {futureWeather.map((weather, index) =>
+  const weatherFromTomorow = futureWeather?.splice(1)
+  const futureWeatherElem = (weatherFromTomorow) => {
+    return weatherFromTomorow
+      ? <WeatherInFiveDaysStyles> {weatherFromTomorow.map((weather, index) =>
         <div key={index}>
           <p>
           {weather.weather_state_name}
@@ -51,7 +51,7 @@ export default function Weather() {
   return (
     <div>
       <h2>Hello world</h2>
-      {futureWeatherElem(futureWeather)}
+      {futureWeatherElem(weatherFromTomorow)}
       {futureWeather && <div className="heilight">
         <h3>
           Hilight for today
