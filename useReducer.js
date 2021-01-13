@@ -5,7 +5,7 @@ const GlobalContext = createContext()
 
 const  CORS_KEY = "https://cors-anywhere.herokuapp.com/"
 const API_KEY = "https://www.metaweather.com/api/"
-const API_LOCATION = "/api/location/search/?query="
+const API_LOCATION = "location/search/?query="
 
 export const ACTIONS = {
   LOADING_STATE: "laoding_state",
@@ -24,7 +24,7 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case ACTIONS.LOADING_STATE: {
-      return { ...state, weatherLocationObj : action.playload }
+      return { ...state, weatherLocationObj : action.playload, weatherInFiveDays : [] }
     }
     case ACTIONS.SET_LOCATION: {
       return { ...state, location: action.location }
@@ -33,11 +33,10 @@ const reducer = (state, action) => {
       return { ...state, woeid : action.woeid }
     }
     case ACTIONS.SET_WEATHER_IN_FIVE_DAYS: {
-      return { ...state, weatherInFiveDays : action.playload }
+      return { ...state, weatherInFiveDays : action.playload, weatherLocationObj : [] }
     }
   }
 }
-
 
 export default function ContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState)
