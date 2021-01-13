@@ -4,7 +4,7 @@ import axios from 'axios'
 const GlobalContext = createContext()
 
 const  CORS_KEY = "https://cors-anywhere.herokuapp.com/"
-const API_KEY = "https://www.metaweather.com/api/"
+export const API_KEY = "https://www.metaweather.com/api/"
 const API_LOCATION = "location/search/?query="
 
 export const ACTIONS = {
