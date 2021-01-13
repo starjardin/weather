@@ -14,6 +14,7 @@ const LocationsStyles = styled.p`
   border : 1px solid #ccc;
   padding : 1rem;
   cursor : pointer;
+  margin : 0;
 `
 export default function Locations() {
   const { state, dispatch } = useContext(GlobalContext)
@@ -42,13 +43,15 @@ export default function Locations() {
           </LocationsStyles>)
         : <div >
           {todaysWeather &&
-            <div>
-              <img />
-              <p>{Number(temperature)} C</p>
-              <p>{todaysWeather.weather_state_name}</p>
-              <p>Today : {todaysDate}</p>
-              <p><VscLocation /> {state.weatherInFiveDays?.title}</p>
-            </div>}
+          <div>
+            <img />
+            <p>{Number(temperature)} C</p>
+            <p>{todaysWeather.weather_state_name}</p>
+            <p>Today : {todaysDate}</p>
+            <p style={{margin : 0}}>
+              <VscLocation /> {state.weatherInFiveDays?.title}
+            </p>
+          </div>}
         </div>
       }
     </LocationContainerStyles>
