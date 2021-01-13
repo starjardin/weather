@@ -25,21 +25,19 @@ export default function Locations({ loadingLoaction }) {
 
   return (
     <LocationContainerStyles>
-      {loadingLoaction
-        ? state.weatherLocationObj.length !== 0
-          ? state.weatherLocationObj.map((location, index) => 
-            <LocationsStyles 
-              key={index}
-              data-value={location.title}
-              onClick={handleClick}
-            >
-              {location.title}
-            </LocationsStyles>)
-          : <div >
-            <p>Loading...</p>
-            <p>Can't find location, Please search</p>
-          </div>
-        : <p>Hello world</p>
+      {state.weatherLocationObj.length !== 0
+        ? state.weatherLocationObj.map((location, index) => 
+          <LocationsStyles 
+            key={index}
+            data-value={location.title}
+            onClick={handleClick}
+          >
+            {location.title}
+          </LocationsStyles>)
+        : <div >
+          <p>Loading...</p>
+          <p>Can't find location, Please search</p>
+        </div>
       }
     </LocationContainerStyles>
   )
