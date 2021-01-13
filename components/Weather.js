@@ -26,10 +26,11 @@ const HilightsStyles = styled.div`
 
 export default function Weather() {
 
-  const { state, dispatch } = useContext(GlobalContext)
+  const { state } = useContext(GlobalContext)
   
   const futureWeather = state.weatherInFiveDays.consolidated_weather
   const weatherFromTomorow = futureWeather?.splice(1)
+  
   const futureWeatherElem = (weatherFromTomorow) => {
     return weatherFromTomorow
       ? <WeatherInFiveDaysStyles> {weatherFromTomorow.map((weather, index) =>

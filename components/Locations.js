@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { addDays, format } from 'date-fns/fp'
+import { VscLocation } from 'react-icons/vsc'
 
 import { GlobalContext } from '../useReducer'
 import { ACTIONS } from '../useReducer'
@@ -13,9 +15,13 @@ const LocationsStyles = styled.p`
   padding : 1rem;
   cursor : pointer;
 `
-export default function Locations({ loadingLoaction }) {
+export default function Locations() {
   const { state, dispatch } = useContext(GlobalContext)
-
+  
+  const todaysWeather = state.weatherInFiveDays.consolidated_weather?.[0]
+  const todaysDate = todaysWeather?.created
+  const temperature = Number(todaysWeather?.the_temp).toFixed(2)
+  
   function handleClick(e) {
     const locationValue = e.target.dataset.value
     const selectedLocation = state.weatherLocationObj.filter(location => location.title === locationValue)
@@ -35,8 +41,14 @@ export default function Locations({ loadingLoaction }) {
             {location.title}
           </LocationsStyles>)
         : <div >
-          <p>Loading...</p>
-          <p>Can't find location, Please search</p>
+          {todaysWeather &&
+            <div>
+              <img />
+              <p>{Number(temperature)} C</p>
+              <p>{todaysWeather.weather_state_name}</p>
+              <p>Today : {todaysDate}</p>
+              <p><VscLocation /> {state.weatherInFiveDays?.title}</p>
+            </div>}
         </div>
       }
     </LocationContainerStyles>
