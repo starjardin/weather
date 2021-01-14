@@ -18,7 +18,7 @@ const initialState = {
   location : "london",
   weatherLocationObj : [],
   weatherInFiveDays : [],
-  woeid : '',
+  woeid : '44418',
 }
 
 const reducer = (state, action) => {
