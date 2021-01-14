@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { GlobalContext, API_KEY } from '../useReducer'
+import { GlobalContext } from '../useReducer'
 import { FaLocationArrow } from 'react-icons/fa'
 import { WeatherInFiveDaysStyles, HilightsStyles } from './WeatherInFiveDaysStyles'
 
@@ -7,27 +7,22 @@ export default function Weather() {
 
   const { state } = useContext(GlobalContext)
   let futureWeather = state.weatherInFiveDays.consolidated_weather
-  const [futureWeathe, setFutureWeather] = useState({})
-  console.log(futureWeathe);
   
   const weatherFromTomorow = futureWeather?.splice(1)
-  console.log(weatherFromTomorow);
-  console.log(futureWeather);
-  const weatherHighlits = (itemId) => {
-    // setFutureWeather(weatherFromTomorow?.filter(weather => weather.id === itemId))
-  }
-
   const futureWeatherElem = (weatherFromTomorow) => {
     return weatherFromTomorow
       ? <WeatherInFiveDaysStyles> {weatherFromTomorow.map((weather, index) =>
-        <div key={index} onClick={() => weatherHighlits(weather.id)}>
+        <div
+          key={index}
+          onClick={() => weatherHighlits(weather.id)}
+        >
           <p>
-            {index === 0 ? "Tomorrow" : weather.created}
+            {/* {index === 0 ? "Tomorrow" : weather.created} */}
           </p>
           <img src={`https://www.metaweather.com//static/img/weather/${weather.weather_state_abbr}.svg`} alt={`${weather.weather_state_name}`} />
           <div className="max-min-temp">
-            <span> {Math.round(weather.max_temp)}</span>
-            <span> {Math.round(weather.min_temp)}</span>
+            <span className="max-temp"> {Math.round(weather.max_temp)}</span>
+            <span className="min-temp"> {Math.round(weather.min_temp)}</span>
           </div>
         </div>
       )
@@ -40,7 +35,7 @@ export default function Weather() {
     <div>
       {futureWeatherElem(weatherFromTomorow)}
       {futureWeather && <div className="heilight">
-        <h3>
+        <h3 style={{ maxWidth: 650, margin : "auto"}}>
           Today's Highlight
         </h3>
         <HilightsStyles className="hilight-container">
