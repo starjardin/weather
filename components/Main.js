@@ -45,12 +45,18 @@ export default function Main({ handleSearch }) {
           </div>
           :
           <div className="todays-weather">
-            <input onClick={openSearch} />
+            <input
+              onClick={openSearch}
+              placeholder="search for places"
+              className="search-for-places"
+            />
             <div className="weather-today">
               {todaysWeather
                 ? <div>
                   <img src={`https://www.metaweather.com//static/img/weather/${todaysWeather.weather_state_abbr}.svg`} alt={`${todaysWeather.weather_state_name}`} />
-                  <p> <span className="heat">{Number(temperature)}</span> C</p>
+                  <p>
+                    <span className="heat">{Number(temperature)}</span> <span className="deg">&#xb0;C</span>
+                  </p>
                   <p>{todaysWeather.weather_state_name}</p>
                   <p>Today : {todaysDate}</p>
                   <p style={{margin : 0}}>
