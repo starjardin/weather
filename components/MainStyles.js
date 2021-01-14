@@ -13,6 +13,9 @@ const MainStyles = styled.div`
   .weather {
     flex-basis : 65%;
     background-color : #100E1D;
+    div {
+      // margin-left : 1rem;
+    }
   }
 
   input, .search { 
@@ -23,6 +26,12 @@ const MainStyles = styled.div`
   input:focus {
     outline  : none;
     border : #ccc 1px solid;
+  }
+
+  .search-for-places {
+    margin : 2rem 0.5rem;
+    background-color : #6E707A;
+    color : #E7E7EB;
   }
 
   .todays-weather {
@@ -39,15 +48,21 @@ const MainStyles = styled.div`
         line-height: 169px;
         color: #E7E7EB;
       }
+      .deg {
+        font-weight: 500;
+        font-size: 60px;
+        line-height: 169px;
+      }
     }
   }
 
   @media screen and (min-width : 720px) {
     display : flex;
-    .search-feild {
-      // position : fixed;
-      // top : 0;
-      // bottom : 0;
+    .todays-weather {
+      position : fixed;
+      top : 0;
+      bottom : 0;
+      margin-right : 1rem;
     }
   }
 `
