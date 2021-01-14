@@ -20,23 +20,35 @@ const MainStyles = styled.div`
     border-radius : 5px;
   }
   
-  .search {
-    border : none;
-    margin-left : 1rem;
-    display : none;
-  }
-
   input:focus {
     outline  : none;
     border : #ccc 1px solid;
   }
 
-  input:focus ~ .search {
-    display : inline-block;
+  .todays-weather {
+    .weather-today {
+      text-align : center;
+      img {
+        max-width : 202px;
+        max-height : 234px
+      }
+      .heat {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 100px;
+        line-height: 169px;
+        color: #E7E7EB;
+      }
+    }
   }
 
   @media screen and (min-width : 720px) {
     display : flex;
+    .search-feild {
+      // position : fixed;
+      // top : 0;
+      // bottom : 0;
+    }
   }
 `
 export default MainStyles;
