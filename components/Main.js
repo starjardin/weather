@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { VscLocation } from 'react-icons/vsc'
+import { format } from 'date-fns'
 
 import MainStyles from './MainStyles'
 import Locations from './locations'
@@ -12,7 +13,6 @@ export default function Main({ handleSearch }) {
    
   const todaysWeather = state.weatherInFiveDays.consolidated_weather?.[0]
   const todaysDate = todaysWeather?.created
-  const date = new Date(todaysDate)
   const temperature = Number(todaysWeather?.the_temp).toFixed(2)
   
   function openSearch() {
@@ -58,7 +58,11 @@ export default function Main({ handleSearch }) {
                     <span className="heat">{Number(temperature)}</span> <span className="deg">&#xb0;C</span>
                   </p>
                   <p>{todaysWeather.weather_state_name}</p>
-                  <p>Today : {todaysDate}</p>
+                    <div>Today : 
+                      <span className="date">{ format(new Date(todaysDate), 'EEE') }</span>
+                      <span className="date">{ format(new Date(todaysDate), 'i') }</span>
+                      <span className="date">{ format(new Date(todaysDate), 'LLL') }</span>
+                    </div>
                   <p style={{margin : 0}}>
                     <VscLocation /> {state.weatherInFiveDays?.title}
                   </p>

@@ -17,6 +17,10 @@ const MainStyles = styled.div`
       // margin-left : 1rem;
     }
   }
+   
+  .date {
+    padding-inline : 0.2rem;
+  }
 
   input, .search { 
     padding : 0.5rem 1rem;

@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { GlobalContext } from '../useReducer'
 import { FaLocationArrow } from 'react-icons/fa'
+import { format } from 'date-fns'
 import { WeatherInFiveDaysStyles, HilightsStyles } from './WeatherInFiveDaysStyles'
 
 export default function Weather() {
@@ -15,9 +16,16 @@ export default function Weather() {
         <div
           key={index}
         >
-          <p>
-            {/* {index === 0 ? "Tomorrow" : weather.created} */}
-          </p>
+          <div>
+            {
+              index === 0 ? "Tomorrow" : 
+              <div>
+                <span className="date">{ format(new Date(weather.applicable_date), 'EEE') }</span>
+                <span className="date">{ format(new Date(weather.applicable_date), 'i') }</span>
+                <span className="date">{ format(new Date(weather.applicable_date), 'LLL') }</span>
+              </div>
+            }
+          </div>
           <img src={`https://www.metaweather.com//static/img/weather/${weather.weather_state_abbr}.svg`} alt={`${weather.weather_state_name}`} />
           <div className="max-min-temp">
             <span className="max-temp"> {Math.round(weather.max_temp)} &#xb0;C </span>
