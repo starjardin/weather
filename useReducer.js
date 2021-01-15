@@ -33,7 +33,7 @@ const reducer = (state, action) => {
       return { ...state, woeid : action.woeid }
     }
     case ACTIONS.SET_WEATHER_IN_FIVE_DAYS: {
-      return { ...state, weatherInFiveDays : action.playload }
+      return { ...state, weatherInFiveDays : action.playload, weatherLocationObj : [] }
     }
   }
 }
