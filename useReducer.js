@@ -24,7 +24,7 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case ACTIONS.LOADING_STATE: {
-      return { ...state, weatherLocationObj : action.playload, weatherInFiveDays : [] }
+      return { ...state, weatherLocationObj : action.playload }
     }
     case ACTIONS.SET_LOCATION: {
       return { ...state, location: action.location }
@@ -33,7 +33,7 @@ const reducer = (state, action) => {
       return { ...state, woeid : action.woeid }
     }
     case ACTIONS.SET_WEATHER_IN_FIVE_DAYS: {
-      return { ...state, weatherInFiveDays : action.playload, weatherLocationObj : [] }
+      return { ...state, weatherInFiveDays : action.playload }
     }
   }
 }

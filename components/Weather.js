@@ -8,6 +8,7 @@ export default function Weather() {
 
   const { state } = useContext(GlobalContext)
   let futureWeather = state.weatherInFiveDays.consolidated_weather
+  console.log(state);
   console.log(futureWeather);
   const weatherFromTomorow = futureWeather?.splice(1)
   console.log(weatherFromTomorow);
@@ -51,14 +52,14 @@ export default function Weather() {
     }}>{ degree } </span>
   }
   return (
-    <div>
+    <div style={{margin : "1rem"}}>
       <div style={{ textAlign: "end", paddingInline: "1.5rem", paddingBlock: "2rem" }}>
         {changeDegree(celcius)}
         {changeDegree(fahrenheit)}
       </div>
       {futureWeatherElem(weatherFromTomorow)}
       {futureWeather && <div className="heilight">
-        <h3 style={{ maxWidth: 650, margin : "auto"}}>
+        <h3 style={{ maxWidth: 850, marginLeft : "0", marginRight : "auto", paddingBlock: "1rem"}}>
           Today's Highlight
         </h3>
         <HilightsStyles className="hilight-container">

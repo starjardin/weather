@@ -77,7 +77,7 @@ export default function Main({ handleSearch }) {
         }
       </div>
       <div className="weather">
-        <Weather/>
+        <Weather style={{ margin : "1rem" }}/>
       </div>
     </MainStyles>
   )

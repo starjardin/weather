@@ -13,6 +13,13 @@ const MainStyles = styled.div`
       color : #E7E7EB;
     }
   }
+
+  .form-search {
+    display : flex;
+    justify-content :  space-between;
+    padding-inline  : 5%;
+  }
+
   .weather {
     flex-basis : 65%;
     background-color : #100E1D;
@@ -29,6 +36,8 @@ const MainStyles = styled.div`
     cursor : pointer;
     display : block;
     padding : 2rem;
+    margin-right : 0;
+    margin-left : auto;
   }
   
   .weather-state {

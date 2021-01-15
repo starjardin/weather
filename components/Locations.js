@@ -8,7 +8,7 @@ import { ACTIONS } from '../useReducer'
 // let format = require('date-fns/format')
 
 const LocationContainerStyles = styled.div`
-  // max-width : 25%;
+  padding-block : 1rem;
 `
 
 const LocationsStyles = styled.p`

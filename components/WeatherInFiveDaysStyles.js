@@ -5,7 +5,7 @@ export const WeatherInFiveDaysStyles = styled.div`
   gap : 1rem;
   flex-wrap : wrap;
   text-align : center;
-  max-width : 650px;
+  max-width : 850px;
   margin : auto;
 
   div {
@@ -29,14 +29,10 @@ export const WeatherInFiveDaysStyles = styled.div`
     text-align : right;
     padding-left : 0.5rem;
   }
-
-  @media screen and (min-width : 720px) {
-    justify-content : space-between;
-  }
 `
 export const HilightsStyles = styled.div`
   margin : 1rem;
-  max-width : 650px;
+  max-width : 850px;
   margin : auto;
 
   .number {
