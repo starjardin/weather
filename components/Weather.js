@@ -8,8 +8,9 @@ export default function Weather() {
 
   const { state } = useContext(GlobalContext)
   let futureWeather = state.weatherInFiveDays.consolidated_weather
-  
+  console.log(futureWeather);
   const weatherFromTomorow = futureWeather?.splice(1)
+  console.log(weatherFromTomorow);
   const futureWeatherElem = (weatherFromTomorow) => {
     return weatherFromTomorow
       ? <WeatherInFiveDaysStyles> {weatherFromTomorow.map((weather, index) =>
@@ -18,7 +19,7 @@ export default function Weather() {
         >
           <div>
             {
-              index === 0 ? "Tomorrow" : 
+              index === 0 ? <span className="date">Tomorrow</span> : 
               <div>
                 <span className="date">{ format(new Date(weather.applicable_date), 'EEE') }</span>
                 <span className="date">{ format(new Date(weather.applicable_date), 'i') }</span>
@@ -36,13 +37,24 @@ export default function Weather() {
       }
       </WeatherInFiveDaysStyles>
       : <div>Loading...</div>
-    }
-
+  }
+  
+  const celcius = <span>&#8451;</span>
+  const fahrenheit = <span>&#8457;</span>
+  function changeDegree(degree) {
+    return <span style={{
+          padding: "0.6rem",
+          backgroundColor : "#585676",
+          borderRadius : "50%",
+          marginInline : "0.5rem",
+          cursor : 'pointer'
+    }}>{ degree } </span>
+  }
   return (
     <div>
-      <div style={{textAlign : "end", paddingInline : "1.5rem", paddingBlock : "2rem"}}>
-        <span style={{padding : "1rem"}}>&#xb0;C</span>
-        <span style={{padding : "1rem"}}>&#xb0;F</span>
+      <div style={{ textAlign: "end", paddingInline: "1.5rem", paddingBlock: "2rem" }}>
+        {changeDegree(celcius)}
+        {changeDegree(fahrenheit)}
       </div>
       {futureWeatherElem(weatherFromTomorow)}
       {futureWeather && <div className="heilight">
