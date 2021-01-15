@@ -22,10 +22,12 @@ export const WeatherInFiveDaysStyles = styled.div`
 
   .max-temp {
     text-align : left;
+    padding-right : 0.5rem;
   }
 
   .min-temp {
     text-align : right;
+    padding-left : 0.5rem;
   }
 
   @media screen and (min-width : 720px) {
