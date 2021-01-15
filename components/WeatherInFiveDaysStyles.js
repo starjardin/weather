@@ -37,6 +37,27 @@ export const HilightsStyles = styled.div`
   max-width : 650px;
   margin : auto;
 
+  .number {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 75px;
+    color: #E7E7EB;
+    span {
+      font-weight: normal;
+      font-size: 44px;
+    }
+  }
+
+  .headlines {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #E7E7EB; 
+  }
+
   div {
     background-color : #1E213A;
     padding : 1rem;
