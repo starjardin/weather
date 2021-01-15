@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { VscLocation } from 'react-icons/vsc'
+import { BiCurrentLocation } from 'react-icons/bi'
 import { format } from 'date-fns'
 
 import MainStyles from './MainStyles'
@@ -13,7 +14,7 @@ export default function Main({ handleSearch }) {
    
   const todaysWeather = state.weatherInFiveDays.consolidated_weather?.[0]
   const todaysDate = todaysWeather?.created
-  const temperature = Number(todaysWeather?.the_temp).toFixed(2)
+  const temperature = Math.round(Number(todaysWeather?.the_temp))
   
   function openSearch() {
     setSearchIsOpen(true)
@@ -28,15 +29,14 @@ export default function Main({ handleSearch }) {
       <div className="search-feild">
         {searchIsOpen
           ? <div>
+              <button type="button" className="close" onClick={closeSearch}>&#10006;</button>
               <form action="#" className="form-search" onSubmit={handleSearch}>
-                <label htmlFor="search-input">Search Location</label>
                 <input 
                   name="search"
                   id="search-input"
                   autoComplete="off"
-                  placeholder="london"
+                  placeholder="search location"
                 />
-              <button type="button" onClick={closeSearch}>&#10006;</button>
               <button type="submit" className="search">search</button>
             </form>
             <Locations
@@ -49,7 +49,10 @@ export default function Main({ handleSearch }) {
               onClick={openSearch}
               placeholder="search for places"
               className="search-for-places"
+              id="search-for-places"
+              name="search-for-places"
             />
+            <BiCurrentLocation />
             <div className="weather-today">
               {todaysWeather
                 ? <div>
@@ -57,13 +60,13 @@ export default function Main({ handleSearch }) {
                   <p>
                     <span className="heat">{Number(temperature)}</span> <span className="deg">&#xb0;C</span>
                   </p>
-                  <p>{todaysWeather.weather_state_name}</p>
+                  <p className="weather-state">{todaysWeather.weather_state_name}</p>
                     <div>Today : 
                       <span className="date">{ format(new Date(todaysDate), 'EEE') }</span>
                       <span className="date">{ format(new Date(todaysDate), 'i') }</span>
                       <span className="date">{ format(new Date(todaysDate), 'LLL') }</span>
                     </div>
-                  <p style={{margin : 0}}>
+                  <p className="location">
                     <VscLocation /> {state.weatherInFiveDays?.title}
                   </p>
                   </div>
