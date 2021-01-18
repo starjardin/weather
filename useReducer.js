@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer } from 'react'
+import React, { createContext, useEffect, useReducer, useState } from 'react'
 import axios from 'axios'
 
 const GlobalContext = createContext()
@@ -18,7 +18,8 @@ const initialState = {
   location : "london",
   weatherLocationObj : [],
   weatherInFiveDays : [],
-  woeid : '44418',
+  woeid: '44418',
+  isTemperatureInCelcius: true
 }
 
 const reducer = (state, action) => {
@@ -40,7 +41,7 @@ const reducer = (state, action) => {
 
 export default function ContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState)
-  console.log(state);
+
   async function fetchData() {
     const res = await axios.get(CORS_KEY + API_KEY + API_LOCATION + state.location)
     dispatch({ type: ACTIONS.LOADING_STATE, playload: res.data })

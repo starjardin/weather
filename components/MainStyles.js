@@ -23,9 +23,6 @@ const MainStyles = styled.div`
   .weather {
     flex-basis : 65%;
     background-color : #100E1D;
-    div {
-      // margin-left : 1rem;
-    }
   }
 
   .close {
@@ -85,6 +82,8 @@ const MainStyles = styled.div`
     background-color : #6E707A;
     color : #E7E7EB;
     padding : 0.5rem;
+    cursor : pointer;
+    border-radius : 3px;
   }
 
   .todays-weather {
@@ -112,6 +111,7 @@ const MainStyles = styled.div`
   @media screen and (min-width : 720px) {
     display : flex;
     .todays-weather {
+      transform : translateX(50%);
       position : fixed;
       min-height : 100vh;
       max-height : 100vh;

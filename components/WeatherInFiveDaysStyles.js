@@ -10,9 +10,10 @@ export const WeatherInFiveDaysStyles = styled.div`
 
   div {
     background-color : #1E213A;
-    padding : 1rem;
+    padding : 0.5rem;
     cursor : pointer;
     max-width : 120px;
+    border-radius : 5px;
   }
 
   img  {

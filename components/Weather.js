@@ -8,10 +8,9 @@ export default function Weather() {
 
   const { state } = useContext(GlobalContext)
   let futureWeather = state.weatherInFiveDays.consolidated_weather
-  console.log(state);
-  console.log(futureWeather);
+  console.log(state.weatherInFiveDays);
   const weatherFromTomorow = futureWeather?.splice(1)
-  console.log(weatherFromTomorow);
+  console.log(state);
   const futureWeatherElem = (weatherFromTomorow) => {
     return weatherFromTomorow
       ? <WeatherInFiveDaysStyles> {weatherFromTomorow.map((weather, index) =>
@@ -20,7 +19,7 @@ export default function Weather() {
         >
           <div>
             {
-              index === 0 ? <span className="date">Tomorrow</span> : 
+              index === 0 ?<div> <span className="date">Tomorrow</span></div> : 
               <div>
                 <span className="date">{ format(new Date(weather.applicable_date), 'EEE') }</span>
                 <span className="date">{ format(new Date(weather.applicable_date), 'i') }</span>
@@ -43,7 +42,9 @@ export default function Weather() {
   const celciusSymb = <span>&#8451;</span>
   const fahrenheitSmb = <span>&#8457;</span>
   function changeDegree(degree) {
-    return <span style={{
+    return <span
+      onClick={() => {console.log("Hello world")}}
+      style={{
           padding: "0.6rem",
           backgroundColor : "#585676",
           borderRadius : "50%",

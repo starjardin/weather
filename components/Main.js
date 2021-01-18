@@ -45,13 +45,13 @@ export default function Main({ handleSearch }) {
           </div>
           :
           <div className="todays-weather">
-            <input
+            <button
               onClick={openSearch}
-              placeholder="search for places"
               className="search-for-places"
               id="search-for-places"
-              name="search-for-places"
-            />
+            >
+              search for places
+            </button>
             <BiCurrentLocation />
             <div className="weather-today">
               {todaysWeather
