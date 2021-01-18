@@ -40,7 +40,7 @@ const reducer = (state, action) => {
 
 export default function ContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState)
-  
+  console.log(state);
   async function fetchData() {
     const res = await axios.get(CORS_KEY + API_KEY + API_LOCATION + state.location)
     dispatch({ type: ACTIONS.LOADING_STATE, playload: res.data })

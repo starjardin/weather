@@ -40,8 +40,8 @@ export default function Weather() {
       : <div>Loading...</div>
   }
   
-  const celcius = <span>&#8451;</span>
-  const fahrenheit = <span>&#8457;</span>
+  const celciusSymb = <span>&#8451;</span>
+  const fahrenheitSmb = <span>&#8457;</span>
   function changeDegree(degree) {
     return <span style={{
           padding: "0.6rem",
@@ -54,8 +54,8 @@ export default function Weather() {
   return (
     <div style={{margin : "1rem"}}>
       <div style={{ textAlign: "end", paddingInline: "1.5rem", paddingBlock: "2rem" }}>
-        {changeDegree(celcius)}
-        {changeDegree(fahrenheit)}
+        {changeDegree(celciusSymb)}
+        {changeDegree(fahrenheitSmb)}
       </div>
       {futureWeatherElem(weatherFromTomorow)}
       {futureWeather && <div className="heilight">
