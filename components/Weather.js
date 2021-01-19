@@ -8,7 +8,6 @@ export default function Weather() {
 
   const { state } = useContext(GlobalContext)
   let futureWeather = state.weatherInFiveDays.consolidated_weather
-  console.log(state.weatherInFiveDays);
   const weatherFromTomorow = futureWeather?.splice(1)
   console.log(state);
   const futureWeatherElem = (weatherFromTomorow) => {
@@ -43,7 +42,7 @@ export default function Weather() {
   const fahrenheitSmb = <span>&#8457;</span>
   function changeDegree(degree) {
     return <span
-      onClick={() => {console.log("Hello world")}}
+      onClick={() => {console.log(state)}}
       style={{
           padding: "0.6rem",
           backgroundColor : "#585676",
@@ -52,6 +51,7 @@ export default function Weather() {
           cursor : 'pointer'
     }}>{ degree } </span>
   }
+  
   return (
     <div style={{margin : "1rem"}}>
       <div style={{ textAlign: "end", paddingInline: "1.5rem", paddingBlock: "2rem" }}>

@@ -15,7 +15,11 @@ const LocationsStyles = styled.p`
   border : 1px solid #ccc;
   padding : 1rem;
   cursor : pointer;
-  margin : 0;
+  margin : 1rem;
+
+  :hover {
+    background-color : #fcfcfc;
+  }
 `
 export default function Locations({ setSearchIsOpen }) {
   const { state, dispatch } = useContext(GlobalContext)

@@ -42,7 +42,7 @@ const reducer = (state, action) => {
 export default function ContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  async function fetchData() {
+  async function getCity() {
     const res = await axios.get(CORS_KEY + API_KEY + API_LOCATION + state.location)
     dispatch({ type: ACTIONS.LOADING_STATE, playload: res.data })
   }
@@ -53,7 +53,7 @@ export default function ContextProvider({ children }) {
   }
 
   useEffect(() => {
-    fetchData()
+    getCity()
   }, [state.location])
 
   useEffect(() => {
