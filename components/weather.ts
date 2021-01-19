@@ -1,28 +1,11 @@
-import React, { useContext } from 'react'
-import { GlobalContext } from '../useReducer'
-import { FaLocationArrow } from 'react-icons/fa'
-import { format } from 'date-fns'
-import { WeatherInFiveDaysStyles, HilightsStyles } from './WeatherInFiveDaysStyles'
-
-export default function Weather() {
-
-  const { state } = useContext(GlobalContext)
-  let futureWeather = state.weatherInFiveDays.consolidated_weather
-  console.log(futureWeather);
-
-  // const weatherFromTomorow = futureWeather?.splice(1, 5)
-  // console.log(weatherFromTomorow);
-  console.log(state);
-  const futureWeatherElem = (weatherFromTomorow) => {
-    return futureWeather
-      ? <WeatherInFiveDaysStyles> {futureWeather.map((weather, index) =>
+/* 
+  ? <WeatherInFiveDaysStyles> {weatherFromTomorow.map((weather, index) =>
         <div
           key={index}
-          className={index === 0 ? "none" : " "}
         >
           <div>
             {
-              index === 1 ?<div> <span className="date">Tomorrow</span></div> : 
+              index === 0 ?<div> <span className="date">Tomorrow</span></div> : 
               <div>
                 <span className="date">{ format(new Date(weather.applicable_date), 'EEE') }</span>
                 <span className="date">{ format(new Date(weather.applicable_date), 'i') }</span>
@@ -62,7 +45,7 @@ export default function Weather() {
         {changeDegree(celciusSymb)}
         {changeDegree(fahrenheitSmb)}
       </div>
-      {futureWeatherElem(futureWeather)}
+      {futureWeatherElem(weatherFromTomorow)}
       {futureWeather && <div className="heilight">
         <h3 style={{ maxWidth: 850, marginLeft : "0", marginRight : "auto", paddingBlock: "1rem"}}>
           Today's Highlight
@@ -99,5 +82,4 @@ export default function Weather() {
         </HilightsStyles>
       </div>}
     </div>
-  )
-}
+*/

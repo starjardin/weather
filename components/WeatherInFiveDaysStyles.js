@@ -8,6 +8,10 @@ export const WeatherInFiveDaysStyles = styled.div`
   max-width : 850px;
   margin : auto;
 
+  .none {
+    display : none;
+  }
+
   div {
     background-color : #1E213A;
     padding : 0.5rem;
